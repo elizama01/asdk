@@ -44,7 +44,7 @@ public class CasoVinilos {
                 break;
         
             case 3:
-                mostrarBusqueda( artista );
+                mostrarBusqueda( colecVinilo, artista);
                 break;
             case 4:
                 
@@ -85,18 +85,23 @@ public class CasoVinilos {
          year=entrada.next();  
          
           entrada.nextLine(); //limpiar el intro
-            aux = new casoVinilosPOO(); //Se crea un objeto vinilo y se asigna su referencia a aux
+        
+          aux = new casoVinilosPOO(); //Se crea un objeto vinilo y se asigna su referencia a aux
             //se asignan valores a los atributos del nuevo objeto
-            aux.setNomArtista(art);
+          
+          aux.setNomArtista(art);
             aux.setNomVinilo(disc);
             aux.setNomAgno(year);
-                                  
+                             
            //se añade el objeto al final del array
             vin.add(aux);
-            if (vin.contains(vin)){
-                System.out.println("Lo ingresado ya se encuentra dentro ");
-           i--;
-            }
+            
+        
+    
+    
+        
+          
+               
          }
              
          } catch (java.util.InputMismatchException e) {
@@ -112,20 +117,39 @@ public static void mostrarColeccion(ArrayList<casoVinilosPOO>vin  ){
 }
 }
 public static boolean buscarArtista(ArrayList<casoVinilosPOO>casoVinilo,String artista){
+  boolean salida=false;
     for (int i = 0; i <casoVinilo.size() ; i++) {
-        if (casoVinilosPOO {
-            return true;
+    if (casoVinilo.get(i).getNomArtista().equalsIgnoreCase(artista)){
+            return salida=true;
         } 
     }
-return false;
+return salida;
 }
 
 
-public static void mostrarBusqueda(String artista  ){
-    if (buscarArtista(null, artista)!=true ) {
-        System.out.println("El artista no se encuentra en la coleccion");
+public static void mostrarBusqueda(ArrayList<casoVinilosPOO> vin ,String artista){
+    if (buscarArtista(vin, artista)==true) {
+        System.out.println("El artista si se encuentra en la coleccion");
     } else {
-    System.out.println("El artista si se  encuentra en la coleccion");
+    System.out.println("El artista no se  encuentra en la coleccion");
+    }
+   
+
+}
+public static boolean buscarDuplicado(ArrayList<casoVinilosPOO>vin){
+  boolean salida=false;
+    if (vin.contains(vin)) {
+        salida=true;
+        
+    } 
+    
+return salida;
+}
+
+
+public static void mostrarDuplicado(ArrayList<casoVinilosPOO> vin ){
+    if (buscarDuplicado(vin)==true) {
+        System.out.println("El vinilo ya se encuentra en la coleccion");
     }
    
 
