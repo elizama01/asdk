@@ -62,7 +62,7 @@ this.Agno=agno ;
 
     @Override
     public String toString() {
-        return "Vinilo{" + "nomArtista=" + nomArtista + ", nomVinilo=" + nomVinilo + ", Agno=" + Agno + '}';
+        return "Vinilo{" + "Artista=" + nomArtista + ", Vinilo=" + nomVinilo + ", año=" + Agno + '}';
     }
     
    
