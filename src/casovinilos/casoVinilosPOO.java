@@ -20,9 +20,9 @@ package casovinilos;
  */
 public class casoVinilosPOO {
  
-    private String nomArtista;
-    private String nomVinilo;
-    private String Agno;
+    public  String nomArtista;
+   public String nomVinilo;
+    public String Agno;
     casoVinilosPOO(){
     }
     
