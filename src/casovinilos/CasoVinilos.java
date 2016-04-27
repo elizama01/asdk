@@ -18,23 +18,17 @@ public class CasoVinilos {
      * @param args the command line arguments
      */
     public static void main(String[] args ) {
+  
+  String art="", disc="",year="";
+    Coleccion c1=new Coleccion(art, disc, year);
+     c1.menu();
+      
         // TODO code application logic here
 
- ArrayList<casoVinilosPOO> colecVinilo = new ArrayList<casoVinilosPOO>();
-  Coleccion colec1=new Coleccion(colecVinilo);
-         
-        colec1.menu(colecVinilo);
+
+  
     }
     
       
 
-
-
-
-
-
-
-
-
-    
 }

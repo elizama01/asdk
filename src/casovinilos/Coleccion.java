@@ -14,78 +14,101 @@ import java.util.Scanner;
  * @author Esteban
  */
 public class Coleccion {
- String  art="",disc="",year="",artista="";
- int opc=0;   
-   
- Coleccion(ArrayList<casoVinilosPOO>colecVinilo) {
-    
+
+  
+int opc =0;
+     
+   ArrayList<casoVinilosPOO>coleccion;
+String art1,disc2,year3,artista4;
+
+    public int getOpc() {
+        return opc;
     }
 
-    Coleccion() {
-        
+    public void setOpc(int opc) {
+        this.opc = opc;
     }
-     public void agregarVinilo(ArrayList<casoVinilosPOO> vin ,
-            String art,String disc,String year,Scanner entrada){
-        entrada=new Scanner(System.in);
-        casoVinilosPOO aux;
-         int cantidad=1 ; 
-         do{
-         try { 
-         do{
+
+    public String getArt1() {
+        return art1;
+    }
+
+    public void setArt1(String art1) {
+        this.art1 = art1;
+    }
+
+    public String getDisc2() {
+        return disc2;
+    }
+
+    public void setDisc2(String disc2) {
+        this.disc2 = disc2;
+    }
+
+    public String getYear3() {
+        return year3;
+    }
+
+    public void setYear3(String year3) {
+        this.year3 = year3;
+    }
+
+    public String getArtista4() {
+        return artista4;
+    }
+
+    public void setArtista4(String artista4) {
+        this.artista4 = artista4;
+    }
+
+   
+   Coleccion(String art, String disc,String year) {
+   
+     ArrayList<casoVinilosPOO>coleccion=new ArrayList<casoVinilosPOO>();
+    this.art1=art;
+    this.disc2=disc;
+    this.year3=year;
+ }
+
+    public ArrayList<casoVinilosPOO> getColeccion() {
+        return coleccion;
+    }
+
+    public void setColeccion(ArrayList<casoVinilosPOO> coleccion) {
+        this.coleccion = coleccion;
+    }
+
+   
+
+
+    
+
+    
+     public void agregarVinilo(ArrayList<casoVinilosPOO> coleccion){
+      coleccion.add(new casoVinilosPOO(art1,disc2,year3));
          
-         System.out.println("Ingrese la cantidad de vinilos que Ingresara max 100");
-         cantidad=entrada.nextInt();}
-         while(cantidad<0||cantidad>100);
-         for (int i = 1; i <= cantidad; i++) {
-         System.out.println("Ingrese el Vinilo "+ i);
-         System.out.println("Ingrese el Artista");
-         art=entrada.next();
-         System.out.println("Ingrese el disco");
-         disc=entrada.next();
-         System.out.println("Ingrese el año ");
-         year=entrada.next();  
-         
-          entrada.nextLine(); //limpiar el intro
-            
-          aux = new casoVinilosPOO(); //Se crea un objeto vinilo y se asigna su referencia a aux
-            //se asignan valores a los atributos del nuevo objeto
-          
-          aux.setNomArtista(art);
-            aux.setNomVinilo(disc);
-            aux.setNomAgno(year);
-           if ()){
-               System.out.println("El vinilo ya se encuentra en la coleccion");
-           }
-           //se añade el objeto al final del array
-            vin.add(aux);
-           
-         }
-             
-         } catch (java.util.InputMismatchException e) {
-             System.out.println("Error Se ingreso un elemento no valido");
-         }
-       }while(cantidad<=0||cantidad>100);
-         }
-     public void mostrarColeccion(ArrayList<casoVinilosPOO>vin  ){
-    for(int x=0;x<vin.size();x++) {
+     }
+     public void mostrarColeccion(ArrayList<casoVinilosPOO>coleccion  ){
+    for(int x=0;x<coleccion.size();x++) {
   
-        System.out.println(vin.get(x));
+        System.out.println(coleccion.get(x));
 }
      }
      
-     public  boolean buscarArtista(ArrayList<casoVinilosPOO>casoVinilo,String artista){
+     public  boolean buscarArtista(ArrayList<casoVinilosPOO>coleccion){
   boolean salida=false;
-    for (int i = 0; i <casoVinilo.size() ; i++) {
-    if (casoVinilo.get(i).getNomArtista().equalsIgnoreCase(artista)){
+    for (int i = 0; i <coleccion.size() ; i++) {
+    if (coleccion.get(i).getNomArtista().equalsIgnoreCase(artista4)){
             return salida=true;
         } 
     }
 return salida;
 }
-     public  void mostrarBusqueda(ArrayList<casoVinilosPOO> vin ,String artista,Scanner entrada){
+     public  void mostrarBusqueda(ArrayList<casoVinilosPOO> coleccion ,Scanner entrada){
     System.out.println("Ingrese el artista que desea buscar");
-            artista=entrada.next();
-    if (buscarArtista(vin, artista)==true) {
+            String artista=entrada.next();
+    setArtista4(artista);
+            if (buscarArtista(coleccion)==true) {
         System.out.println("El artista si se encuentra en la coleccion");
     } else {
     System.out.println("El artista no se  encuentra en la coleccion");
@@ -93,23 +116,26 @@ return salida;
    
 
 }
-  public void mostrarDuplicado(ArrayList<casoVinilosPOO> vin,String art,String disc,String year ){
+  public void mostrarDuplicado(ArrayList<casoVinilosPOO> coleccion ){
     
    
 
 }
-     public  boolean buscarDuplicado(ArrayList<casoVinilosPOO>vin,String numArtista,String numVinilo){
+     public  boolean buscarDuplicado(ArrayList<casoVinilosPOO>coleccion,String art,String numdisc){
   boolean salida=false;
-    
+         for (int i = 0; i < coleccion.size(); i++) {
+            if  (coleccion.get(i).getNomArtista().equalsIgnoreCase(art)&& coleccion.get(i).getNomVinilo().equalsIgnoreCase(disc2))
+         return true ; 
+                }
     
 return salida;
 }
 
-     public void menu(ArrayList<casoVinilosPOO>colecVinilo){
-          do {            
-             try { Scanner entrada=  new Scanner (System.in);
+     public void menu(){
+             do {            
+     try { Scanner entrada=  new Scanner (System.in);
   
-      
+    
         System.out.println("Elija Opcion  ");
         System.out.println(" 1 Ingresar Vinilos   ");
         System.out.println(" 2 Mostrar Vinilos   ");
@@ -119,18 +145,21 @@ return salida;
          opc=entrada.nextInt();
         switch (opc){
             case 1:
-                agregarVinilo(colecVinilo, art,disc,year,entrada); 
+               
+                IngresoDatos();
+                
+              agregarVinilo(coleccion);
              
                 break;
             case 2:
                 ; 
-              mostrarColeccion(colecVinilo);
+              mostrarColeccion(coleccion);
                 break;
         
             case 3:
                 
               
-                mostrarBusqueda( colecVinilo,artista,entrada);
+                mostrarBusqueda( coleccion,entrada);
                 break;
             case 4:
                 
@@ -148,5 +177,38 @@ return salida;
          
          
      }
+     public void IngresoDatos(){
+      Scanner entrada = new Scanner(System.in);
+        
+   
+         int cantidad=1 ; 
+         do{
+         try { 
+         do{
+         
+         System.out.println("Ingrese la cantidad de vinilos que Ingresara max 100");
+         cantidad=entrada.nextInt();}
+         while(cantidad<0||cantidad>100);
+         for (int i = 1; i <= cantidad; i++) {
+         System.out.println("Ingrese el Vinilo "+ i);
+         System.out.println("Ingrese el Artista");
+         String art=entrada.next();
+             setArt1(art);
+         System.out.println("Ingrese el disco");
+        String  disc=entrada.next();
+             setDisc2(disc);
+         System.out.println("Ingrese el año ");
+       String   year=entrada.next();  
+             setYear3(year);
+          entrada.nextLine(); //limpiar el intro
+           
+         }
+             
+         } catch (java.util.InputMismatchException e) {
+             System.out.println("Error Se ingreso un elemento no valido");
+         }
+       }while(cantidad<=0||cantidad>100);
+        
+}
     
 }
